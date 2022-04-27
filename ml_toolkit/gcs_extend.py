@@ -1,7 +1,4 @@
-from google.cloud import storage
-import logging
-
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
+def upload_blob(storage_client, bucket_name, source_file_name, destination_blob_name):
     
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(destination_blob_name)
@@ -11,7 +8,7 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     print(f"File {source_file_name} uploaded to {destination_blob_name}.")
     
     
-def download_blob(bucket_name, source_blob_name, destination_file_name):
+def download_blob(storage_client, bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
 
     bucket = storage_client.bucket(bucket_name)
