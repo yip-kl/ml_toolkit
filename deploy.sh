@@ -1,7 +1,7 @@
 export BRANCH_NAME=$1
 git init
 git remote rm origin
-git remote add origin https://gl.infratest.livibank.hk/customer-insight-customization/ml_toolkit.git
+git remote add origin https://github.com/yip-kl/ml_toolkit.git
 git branch $BRANCH_NAME
 git branch -M $BRANCH_NAME
 git add .
