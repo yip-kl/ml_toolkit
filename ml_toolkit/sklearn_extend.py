@@ -27,7 +27,7 @@ def get_feature_names(columnTransformer):
                 if pipe == 'drop':
                     pass
                 elif hasattr(i,'categories_'):
-                    trans_features.extend(i.get_feature_names(features))
+                    trans_features.extend(i.get_feature_names_out(features))
                 else:
                     trans_features = features
             output_features.extend(trans_features)
