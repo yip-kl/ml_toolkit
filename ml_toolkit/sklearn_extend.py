@@ -34,26 +34,6 @@ def get_feature_names(columnTransformer):
 
     return output_features
 
-def get_selected_features(df_columns, pipeline):
-    """ Show header name after transformation for feature selection pipeline
-    
-    Parameters
-    ----------
-    df_columns: DataFrame.columns of the dataframe before transformation
-    pipeline: The sklearn Pipeline object used for feature selection
-    
-    Returns
-    -------
-    features: list
-    
-    """
-    output = df_columns
-    for step in pipeline.named_steps:
-        support_mask = pipeline.named_steps[step].get_support()
-        output = output[support_mask]
-    
-    return output
-
 class CorrelationThreshold(BaseEstimator, SelectorMixin):
     """
     Feature Selection Transformer, which reviews pairwise Pearson's r of X variables, and exclude the 
