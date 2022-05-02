@@ -24,7 +24,9 @@ def get_feature_names(columnTransformer):
         if name!='remainder':
             for i in pipe:
                 trans_features = []
-                if hasattr(i,'categories_'):
+                if pipe == 'drop':
+                    pass
+                elif hasattr(i,'categories_'):
                     trans_features.extend(i.get_feature_names(features))
                 else:
                     trans_features = features
