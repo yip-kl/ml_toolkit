@@ -18,12 +18,8 @@ def count_bucket(bucket, score):
         len([one_score for one_score in score if one_score <= bucket[0]])
     ]
     
-    for index, threhold in enumerate(bucket[1:], 1):        
-        users_in_between = len([one_score
-                                for one_score in score
-                                if one_score <= bucket[index]
-                                and one_score > bucket[index-1]
-                               ])
+    for index, threhold in enumerate(bucket[1:], 1):       
+        users_in_between = len(score[np.logical_and(score> bucket[index-1], score <= bucket[index])])
         output.append(users_in_between)
         
     proportion = [i/sum(output) for i in output]
